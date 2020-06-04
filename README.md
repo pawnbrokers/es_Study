@@ -1,4 +1,4 @@
-![image-20200604140334918](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604140334918.png)
+![image-20200604140334918](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190540.png)
 
 主要参考来源：https://www.bilibili.com/video/BV17a4y1x7zq?p=1
 
@@ -31,7 +31,7 @@ Lucene提供了一个简单却强大的应用程式接口，能够做全文索�
 
 ## 2.1 目录查看
 
-![image-20200604140823533](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604140823533.png)
+![image-20200604140823533](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190541.png)
 
 ```shell
 bin  #启动文件
@@ -51,7 +51,7 @@ plugins #插件！
 
 运行`bin`目录下的`elasticsearch.bat`，默认端口为9200
 
-![image-20200604141040191](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604141040191.png)
+![image-20200604141040191](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190542.png)
 
 可以发现`elasticsearch`自成一个集群。
 
@@ -79,7 +79,7 @@ http.cors.allow-origin: "*"
 
 ### 2.3.3 重启es服务器，然后再次连接
 
-![image-20200604142018799](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604142018799.png)
+![image-20200604142018799](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190543.png)
 
 
 
@@ -95,7 +95,7 @@ Kibana非常简单。无需编码或者额外的基础架构，几分钟内就�
 
 ### 2.4.1 访问测试(默认端口：5601)
 
-![image-20200604142218788](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604142218788.png)
+![image-20200604142218788](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190544.png)
 
 
 
@@ -103,7 +103,7 @@ Kibana非常简单。无需编码或者额外的基础架构，几分钟内就�
 
 ### 2.4.2 我们可以使用开发者工具进行调试
 
-![image-20200604142306019](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604142306019.png)
+![image-20200604142306019](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190545.png)
 
 
 
@@ -177,7 +177,7 @@ ElasticSearch是面向文档的，**也就是说索引和搜索数据的最小�
 
 研究下分片是如何工作的。  
 
-![image-20200604144546172](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604144546172.png)
+![image-20200604144546172](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190546.png)
 
 
 
@@ -189,7 +189,7 @@ ElasticSearch是面向文档的，**也就是说索引和搜索数据的最小�
 >
 > 假设 IndexA 有2个分片，我们向 IndexA 中插入10条数据 (10个文档)，那么这10条数据会尽可能平均的分为5条存储在第一个分片，剩下的5条会存储在另一个分片中。
 
-![image-20200604145055137](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604145055137.png)
+![image-20200604145055137](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190547.png)
 
 如图，在集群1中有两个节点，并使用了默认的分片配置. ES自动把这5个主分片分配到2个节点上, 而它们分别对应的副本则在完全不同的节点上。其中 node1 有
 
@@ -209,7 +209,7 @@ ElasticSearch是面向文档的，**也就是说索引和搜索数据的最小�
 
 而倒排索引指的是**将单词或记录作为索引，将文档ID作为记录**，这样便可以方便地通过单词或记录查找到其所在的文档。
 
-![image-20200604145649823](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604145649823.png)
+![image-20200604145649823](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190548.png)
 
 创建倒排索引，分为以下几步：
 
@@ -217,13 +217,13 @@ ElasticSearch是面向文档的，**也就是说索引和搜索数据的最小�
 
 l lucene首先对原始文档数据进行编号（DocID），形成列表，就是一个文档列表
 
-![](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\v2-d50ffd4b3bc38e25e281fea9e07e14e6_720w.jpg)
+![](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190549.png)
 
 2）创建倒排索引列表
 
 l 然后对文档中数据进行分词，得到词条。对词条进行编号，以词条创建索引。然后记录下包含该词条的所有文档编号（及其它信息）。
 
-![img](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\v2-0e77a230cbce4cd3c8b8e121bb211518_hd.jpg)
+![img](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190550.png)
 
 谷歌之父--> 谷歌、之父
 
@@ -247,7 +247,7 @@ l 然后对文档中数据进行分词，得到词条。对词条进行编号，
 
 比如我们通过博客标签来搜索博客文章，那么倒排索引列表就是这样的一个结构：
 
-![image-20200604145903191](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604145903191.png)
+![image-20200604145903191](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190551.png)
 
 如果要搜索含有 python 标签的文章，那相对于查找所有原始数据而言，查找倒排索引后的数据将会快的多。只需要 查看标签这一栏，然后获取相关的文章ID即
 
@@ -257,7 +257,7 @@ l 然后对文档中数据进行分词，得到词条。对词条进行编号，
 
 # 4. IK分词器插件
 
-![image-20200604150004192](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604150004192.png)
+![image-20200604150004192](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190552.png)
 
 ## 4.1 什么是分词器
 
@@ -281,7 +281,7 @@ l 然后对文档中数据进行分词，得到词条。对词条进行编号，
 
 **ik_smart:**
 
-![image-20200604150434913](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604150434913.png)
+![image-20200604150434913](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190553.png)
 
 
 
@@ -289,13 +289,13 @@ l 然后对文档中数据进行分词，得到词条。对词条进行编号，
 
 **它按照字典穷尽了所有的可能。**
 
-![image-20200604150527548](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604150527548.png)
+![image-20200604150527548](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190554.png)
 
 
 
 ## 4.4 测试 我叫李相赫
 
-![image-20200604150734097](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604150734097.png)
+![image-20200604150734097](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190555.png)
 
 发现哪怕我们使用了`ik_smar`t却还是把我们的`李相赫`给**分词**了。
 
@@ -309,15 +309,15 @@ l 然后对文档中数据进行分词，得到词条。对词条进行编号，
 2. 在对应的xml文件中加入我们自定义的字典
 3. 重启ES
 
-![image-20200604151107179](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604151107179.png)
+![image-20200604151107179](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190556.png)
 
-![image-20200604151114831](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604151114831.png)
+![image-20200604151114831](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190557.png)
 
 重启测试：
 
-![image-20200604151811060](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604151811060.png)
+![image-20200604151811060](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190558.png)
 
-![image-20200604151818290](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604151818290.png)
+![image-20200604151818290](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190559.png)
 
 **发现李相赫三个字不再会被分词器拆分。**
 
@@ -345,11 +345,11 @@ PUT /索引名/~类型名~/文档id
 {请求体}
 ```
 
-![image-20200604152359076](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604152359076.png)
+![image-20200604152359076](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190600.png)
 
 去es-head中看看
 
-![image-20200604152441364](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604152441364.png)
+![image-20200604152441364](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190601.png)
 
 发现对应的索引、类型、文档都已被创建。
 
@@ -359,21 +359,21 @@ PUT /索引名/~类型名~/文档id
 
 上述方式插入的时候采用的是默认的数据类型，**我们当然可以在创建索引的时候就事先指定字段的数据类型。**
 
-![image-20200604152750653](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604152750653.png)
+![image-20200604152750653](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190602.png)
 
-![image-20200604152831074](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604152831074.png)
+![image-20200604152831074](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190603.png)
 
 ## 6.3 查看信息 GET 
 
 当然我们也可以通过`GET /索引名`来获得具体的信息
 
-![image-20200604152937144](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604152937144.png)
+![image-20200604152937144](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190604.png)
 
 
 
 **如果我们没有指定字段数据类型，es会问我们自动指定，我们可以来看一下test1索引的默认书库类型是什么？**
 
-![image-20200604153126146](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604153126146.png)
+![image-20200604153126146](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190605.png)
 
 
 
@@ -388,7 +388,7 @@ PUT /索引名/类型/文档 id
 
 发现版本号变成了2，而且状态返回时`"update"`而非`"created"`。
 
-![image-20200604153324852](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604153324852.png)
+![image-20200604153324852](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190606.png)
 
 
 
@@ -402,7 +402,7 @@ POST /索引名/类型/文档id/update
 }
 ```
 
-![image-20200604153724017](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604153724017.png)
+![image-20200604153724017](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190607.png)
 
 同样是版本号变成了3，并且返回状态是`updated`.
 
@@ -427,13 +427,13 @@ POST /索引名/类型/文档id/update
 GET /索引名/类型/文档id
 ```
 
-![image-20200604154105764](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604154105764.png)
+![image-20200604154105764](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190608.png)
 
 
 
 ### 7.1.2 简单地条件搜索 _search
 
-![image-20200604154214682](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604154214682.png)
+![image-20200604154214682](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190609.png)
 
 
 
@@ -443,7 +443,7 @@ GET /索引名/类型/文档id
 
 ### 7.2.1 查询结构体样式
 
-![image-20200604154525749](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604154525749.png)
+![image-20200604154525749](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190610.png)
 
 我们首先es中有两条数据
 
@@ -458,7 +458,7 @@ GET test1/user/_search
 }
 ```
 
-![image-20200604154633439](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604154633439.png)
+![image-20200604154633439](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190611.png)
 
 发现的东西：
 
@@ -481,7 +481,7 @@ GET 索引/类型/_search
 }
 ```
 
-![image-20200604155127714](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604155127714.png)
+![image-20200604155127714](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190612.png)
 
 这里我们发现就会只搜索出名字，而年龄并未封装出来。
 
@@ -512,7 +512,7 @@ GET test1/user/_search
 
 这里我们按照年龄逆序排列
 
-![image-20200604155345635](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604155345635.png)
+![image-20200604155345635](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190613.png)
 
 
 
@@ -533,13 +533,13 @@ GET test1/user/_search
 
 这里我们查询出了多条记录，但是只显示1条
 
-![image-20200604155557836](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604155557836.png)
+![image-20200604155557836](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190614.png)
 
 
 
 ### 7.2.5 布尔值查询
 
-![image-20200604155710790](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604155710790.png)
+![image-20200604155710790](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190615.png)
 
 ```GET test1/user/_search
 GET test1/user/_search
@@ -563,7 +563,7 @@ GET test1/user/_search
 
 这样就查询出名字中含有“张三”并且年龄等于24的文档了。
 
-![image-20200604160023944](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604160023944.png)
+![image-20200604160023944](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190616.png)
 
 
 
@@ -577,7 +577,7 @@ term 查询是直接通过倒排索引指定的词条进程精确查找的！
 
 **match，会使用分词器解析**！（先分析文档，然后在通过分析的文档进行查询！）  
 
-![image-20200604160708354](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604160708354.png)
+![image-20200604160708354](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190617.png)
 
 
 
@@ -607,7 +607,7 @@ GET test1/_search
 
 
 
-![image-20200604160942884](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604160942884.png)
+![image-20200604160942884](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190618.png)
 
 
 
@@ -617,7 +617,7 @@ GET test1/_search
 
 我们这里选择`Java High Level REST Client`
 
-![image-20200604162110112](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604162110112.png)
+![image-20200604162110112](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190619.png)
 
 
 
@@ -633,7 +633,7 @@ GET test1/_search
 </dependency>
 ```
 
-![image-20200604162305971](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604162305971.png)
+![image-20200604162305971](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190620.png)
 
 我们在springboot项目中导入
 
@@ -650,7 +650,7 @@ GET test1/_search
 
 ## 8.2 创建客户端
 
-![image-20200604162532550](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604162532550.png)
+![image-20200604162532550](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190621.png)
 
 这里我们新建一个config文件，@Bean注入对应的客户端。
 
@@ -673,11 +673,11 @@ public class ElasticSearchConfig {
 
 ## 8.3 编写请求
 
-![image-20200604162950080](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604162950080.png)
+![image-20200604162950080](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190622.png)
 
 ## 8.4 对应的API
 
-![image-20200604163019841](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604163019841.png)
+![image-20200604163019841](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190623.png)
 
 
 
@@ -702,7 +702,7 @@ public class User {
 
 对应的是`CreateRequest`
 
-![image-20200604163458692](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604163458692.png)
+![image-20200604163458692](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190624.png)
 
 ```java
 @Autowired
@@ -737,7 +737,7 @@ void testExistIndex() throws IOException {
 }
 ```
 
-![image-20200604163442067](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604163442067.png)
+![image-20200604163442067](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190625.png)
 
 
 
@@ -756,7 +756,7 @@ void testExistIndex() throws IOException {
 
 
 
-![image-20200604163416473](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604163416473.png)
+![image-20200604163416473](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190626.png)
 
 
 
@@ -806,7 +806,7 @@ void testIsExist() throws IOException {
 }
 ```
 
-![image-20200604164009435](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164009435.png)
+![image-20200604164009435](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190627.png)
 
 
 
@@ -823,7 +823,7 @@ void testIsExist() throws IOException {
     }
 ```
 
-![image-20200604164104455](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164104455.png)
+![image-20200604164104455](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190628.png)
 
 
 
@@ -845,7 +845,7 @@ void testIsExist() throws IOException {
     }
 ```
 
-![image-20200604164157716](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164157716.png)
+![image-20200604164157716](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190629.png)
 
 
 
@@ -862,7 +862,7 @@ void testDEleteDocument() throws IOException {
 }
 ```
 
-![image-20200604164314263](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164314263.png)
+![image-20200604164314263](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190630.png)
 
 
 
@@ -893,7 +893,7 @@ void testDEleteDocument() throws IOException {
     }
 ```
 
-![image-20200604164437997](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164437997.png)
+![image-20200604164437997](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190631.png)
 
 
 
@@ -929,13 +929,13 @@ void testDEleteDocument() throws IOException {
     }
 ```
 
-![image-20200604164650663](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164650663.png)
+![image-20200604164650663](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190632.png)
 
 
 
 `SearchRequest`复杂查询
 
-![image-20200604164918836](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604164918836.png)
+![image-20200604164918836](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190633.png)
 
 1. 首先创建请求，交由客户端来执行
 2. SearchSourceBuilder是用来设置查询参数的
@@ -943,7 +943,7 @@ void testDEleteDocument() throws IOException {
 4. 真个builder作为请求体交由request处理
 5. 客户端执行request
 
-![image-20200604165346550](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604165346550.png)
+![image-20200604165346550](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190634.png)
 
 
 
@@ -951,13 +951,13 @@ void testDEleteDocument() throws IOException {
 
 ## 9.1 最终效果
 
-![image-20200604165511503](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604165511503.png)
+![image-20200604165511503](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190635.png)
 
 
 
 ## 9.2 需要的依赖（页面以及对应的js）
 
-![image-20200604165557574](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604165557574.png)
+![image-20200604165557574](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190636.png)
 
 
 
@@ -1030,29 +1030,29 @@ public class HtmlParseUtil {
 
 信息的主要来源id为`J_goodList`
 
-![image-20200604165926879](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604165926879.png)
+![image-20200604165926879](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190637.png)
 
 
 
 图片对应`img`下的`src`。
 
-![image-20200604170014343](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604170014343.png)
+![image-20200604170014343](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190638.png)
 
 
 
 书名对应`class`为`p_name`。
 
-![image-20200604170119983](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604170119983.png)
+![image-20200604170119983](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190639.png)
 
 价格对应class为`p_price`。
 
-![image-20200604170203738](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604170203738.png)
+![image-20200604170203738](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190640.png)
 
 
 
 ### 9.3.4 再看代码
 
-![image-20200604170508061](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604170508061.png)
+![image-20200604170508061](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190641.png)
 
 
 
@@ -1081,11 +1081,11 @@ public class ContentService {
     }
 ```
 
-![image-20200604185752829](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604185752829.png)
+![image-20200604185752829](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190642.jpg)
 
 ## 9.4 获取资源的Controller
 
-![image-20200604185833509](I:\giteeBlog\blog\source\_posts\ElasticSearch入门.assets\image-20200604185833509.png)
+![image-20200604185833509](https://yuancc.oss-cn-hangzhou.aliyuncs.com/typora/20200604190643.jpg)
 
 
 
